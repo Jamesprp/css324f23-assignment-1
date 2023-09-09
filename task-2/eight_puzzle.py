@@ -50,5 +50,32 @@ def h1(s):
 
 def h3(s):
     # implement this function
+    goal = (1,2,3,4,5,6,7,8,9)
+    rows = 0
+    column =0
+    res3 = 0
     board, _, _ = s
-    return 0
+    for idx in range(1,9):
+        if goal[idx] == 1 or 4 or 7:
+            if idx != 0 or 3 or 7:
+                rows +=1
+        if goal[idx] == 2 or 5 or 8:
+            if idx != 0 or 3 or 7:
+                rows +=1       
+        if goal[idx] == 3 or 7 or 0:
+            if idx != 0 or 3 or 7:
+                rows +=1
+    
+    for idx in range(1,9):
+        if goal[idx] == 1 or 2 or 3:
+            if idx != 0 or 1 or 2:
+                column +=1
+        if goal[idx] == 4 or 5 or 6:
+            if idx != 3 or 4 or 5:
+                column +=1       
+        if goal[idx] == 7 or 0 or 8:
+            if idx != 6 or 7 or 8:
+                column +=1
+    
+    res3 = rows+column
+    return res3 + h1(s)
